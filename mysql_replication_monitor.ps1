@@ -28,7 +28,7 @@ If ($IORunning -Eq 'No' -Or $SQLRunning -Eq 'No' -Or $SecondsBh -gt $MaxSeconds)
 	$MailBody += 'Seconds Behind: ' + ($SecondsBh) + '<br>'
 	$MailBody += '   Last Err No: ' + ($LastErrNo) + '<br>'
 	
-	<# Send e-mail, maibe some telegram message here too #>
+	<# Send e-mail, maybe some telegram message here too #>
 	Send-MailMessage -To $MailTo -From $MailFrom  -Subject 'Problemas na replicação' -bodyAsHtml $MailBody -Credential (Get-Credential) -SmtpServer 'smtp.office365.com' -Port 587 -UseSsl
 } Else {
     Write-Host "Up and running"
