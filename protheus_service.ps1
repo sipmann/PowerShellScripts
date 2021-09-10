@@ -1,4 +1,25 @@
-param($Acao = 'restart')
+<#
+.SYNOPSIS
+    .
+.DESCRIPTION
+    .
+.PARAMETER Acao
+    A acao a ser realizada. O valor padrao e restart. Ira reiniciar os servicos, inclusive os servicos adicionais. Ira manter tudo parado aguardando uma nova entrada do usuario, para entao subir novamente os outros servicos.
+
+.EXAMPLE
+    C:\PS> restart Acao=Manutencao
+    Ira reiniciar os servicos, inclusive os servicos adicionais.
+.NOTES
+    Author: Mauricio Sipmann
+    Date:   Agosto 19, 2021
+#>
+param(
+	[string]
+	[ValidateSet("restart", "manutencao")]
+	$Acao = 'restart')
+	
+Write-Host ("=" * 30);
+Write-Host "Ação: $Acao"
 
 $servicesNames = 'app_main',
     'app_worker1',
